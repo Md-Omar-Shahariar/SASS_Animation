@@ -1,0 +1,12 @@
+$bg: #222;
+$cc: #fff;
+
+$n-dot: 12;
+$d-dot: 30px;
+$d-ring: 300px;
+
+
+$ba: 360deg/$n-dot;
+$rt: $d-dot*.5;
+$trans-dis:$d-dot *2;
+$bs: 0 0 0 .6*$rt $bg;

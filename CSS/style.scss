@@ -1,0 +1,50 @@
+@import "./variable";
+
+body{
+    background: $bg;
+}
+div, :after{
+    border-radius: 50%;
+    position: absolute;
+    transform-style: preserve-3d;
+}
+.ring{
+    left: 50%;
+    top: 50%;
+    &:after{
+        margin: -0.5* $d-ring;
+        width: $d-ring;
+        height: $d-ring;
+        border: $rt solid $cc ;      
+        content: "";
+    }    
+}
+.dot{
+    @for $i from 1 to $n-dot + 1{
+       &:nth-child(#{$i}){
+        transform: rotate($i * $ba) translate($d-ring *.5);
+        &:after{
+            animation-delay:  -$i*2s/12;
+        }
+       } 
+    }
+    &:after{
+        content: "";
+        width: $d-dot;
+        height: $d-dot;
+        margin: -0.5 * $d-dot;
+        border: 5px solid $bg;
+        box-shadow: $bs ;
+        background: $cc;
+        animation: play 2s linear infinite;
+    }
+    
+}
+@keyframes play{
+   0%{
+transform: rotateY(0deg) translate($trans-dis) rotateY(0deg);
+   }
+   100%{
+transform: rotateY(360deg) translate($trans-dis) rotateY(-360deg) ;
+   } 
+}
