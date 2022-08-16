@@ -1,0 +1,137 @@
+:root{                                                       
+    --bg: rgb(0, 0, 0);
+    --cc: rgb(255, 223, 43);
+
+    --n-dot: 12;
+    --d-dot: 30px;
+    --d-ring: 300px;
+    --ba: calc(360deg/var(--n-dot));
+    --rt: calc(var(--d-dot)*.5);
+    --trans-dis:calc(var(--d-dot) *2);
+    --bs: 0 0 0 calc(.6*var(--rt)) var(--bg);
+}
+body{
+    background: var(--bg);
+}
+div{
+    border-radius: 50%;
+    position: absolute;
+    transform-style: preserve-3d;
+}
+div::after{
+    border-radius: 50%;
+    position: absolute;
+    transform-style: preserve-3d;
+}
+.ring{
+    left: 50%;
+    top: 50%;      
+}
+.ring::after{
+    margin: calc(-0.5 * var(--d-ring));
+    width: var(--d-ring);
+    height: var(--d-ring);
+    border: var(--rt) solid var(--cc) ;      
+    content: "";
+}  
+
+
+.dot::after{
+    content: "";
+    width: var(--d-dot);
+    height: var(--d-dot);
+    margin: calc(-0.5 * var(--d-dot));
+    border: 5px solid var(--bg);
+    box-shadow: var(--bs) ;
+    background: var(--cc);
+    animation: play 2s linear infinite;
+}
+
+.dot:nth-child(1){
+    transform: rotate(calc(1 * var(--ba))) translate(calc(var(--d-ring) *.5));
+        
+}
+
+.dot:nth-child(2){
+    transform: rotate(calc(2 * var(--ba))) translate(calc(var(--d-ring) *.5));
+        
+}
+
+.dot:nth-child(3){
+    transform: rotate(calc(3 * var(--ba))) translate(calc(var(--d-ring) *.5));
+        
+}
+.dot:nth-child(4){
+    transform: rotate(calc(4 * var(--ba))) translate(calc(var(--d-ring) *.5));        
+}
+.dot:nth-child(5){
+    transform: rotate(calc(5 * var(--ba))) translate(calc(var(--d-ring) *.5));
+        
+}
+.dot:nth-child(6){
+    transform: rotate(calc(6 * var(--ba))) translate(calc(var(--d-ring) *.5));
+        
+}
+.dot:nth-child(7){
+    transform: rotate(calc(7 * var(--ba))) translate(calc(var(--d-ring) *.5));       
+}
+.dot:nth-child(8){
+    transform: rotate(calc(8 * var(--ba))) translate(calc(var(--d-ring) *.5));
+}
+.dot:nth-child(9){
+    transform: rotate(calc(9 * var(--ba))) translate(calc(var(--d-ring) *.5));       
+}
+.dot:nth-child(10){
+    transform: rotate(calc(10 * var(--ba))) translate(calc(var(--d-ring) *.5));        
+}
+.dot:nth-child(11){
+    transform: rotate(calc(11 * var(--ba))) translate(calc(var(--d-ring) *.5));       
+}
+.dot:nth-child(12){
+    transform: rotate(calc(12 * var(--ba))) translate(calc(var(--d-ring) *.5));       
+}
+.dot:nth-child(1)::after{
+    animation-delay: calc(-1*2s/12);
+}
+.dot:nth-child(2)::after{
+    animation-delay: calc(-2*2s/12);
+}
+.dot:nth-child(3)::after{
+    animation-delay: calc(-3*2s/12);
+}
+.dot:nth-child(4)::after{
+    animation-delay: calc(-4*2s/12);
+}
+.dot:nth-child(5)::after{
+    animation-delay: calc(-5*2s/12);
+}
+.dot:nth-child(6)::after{
+    animation-delay: calc(-6*2s/12);
+}
+.dot:nth-child(7)::after{
+    animation-delay: calc(-7*2s/12);
+}
+.dot:nth-child(8)::after{
+    animation-delay: calc(-8*2s/12);
+}
+
+.dot:nth-child(9)::after{
+    animation-delay: calc(-9*2s/12);
+}
+.dot:nth-child(10)::after{
+    animation-delay:  calc(-10*2s/12);
+}
+.dot:nth-child(11)::after{
+    animation-delay:  calc(-11*2s/12);
+}
+.dot:nth-child(12)::after{
+    animation-delay:  calc(-12*2s/12);
+}
+@keyframes play{
+    0%{
+ transform: rotateY(0deg) translate(var(--trans-dis)) rotateY(0deg);
+    }
+    100%{
+ transform: rotateY(360deg) translate(var(--trans-dis)) rotateY(-360deg) ;
+    } 
+ }

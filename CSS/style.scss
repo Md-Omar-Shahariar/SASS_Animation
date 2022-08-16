@@ -1,4 +1,4 @@
-@import "./variable";
+@import "./variable";                     /*Easy Reusability*/
 
 body{
     background: $bg;
@@ -11,16 +11,16 @@ div, :after{
 .ring{
     left: 50%;
     top: 50%;
-    &:after{
-        margin: -0.5* $d-ring;
+    &:after{                            /*Nesting*/
+        margin: -0.5* $d-ring;          /*No Need to call Calc()*/
         width: $d-ring;
         height: $d-ring;
         border: $rt solid $cc ;      
         content: "";
-    }    
+    }       
 }
 .dot{
-    @for $i from 1 to $n-dot + 1{
+    @for $i from 1 to $n-dot + 1{       /*Looping*/
        &:nth-child(#{$i}){
         transform: rotate($i * $ba) translate($d-ring *.5);
         &:after{
@@ -37,8 +37,7 @@ div, :after{
         box-shadow: $bs ;
         background: $cc;
         animation: play 2s linear infinite;
-    }
-    
+    }   
 }
 @keyframes play{
    0%{
